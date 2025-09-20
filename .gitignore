@@ -1,0 +1,5 @@
+node_modules
+.env
+.prettierrc
+eslint.config.mjs
+gods_data.json
