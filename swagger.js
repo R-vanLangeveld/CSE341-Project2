@@ -9,7 +9,7 @@ const doc = {
   },
   host:
     process.env.NODE_ENV === "production"
-      ? "cse341project1-0a6p.onrender.com"
+      ? "cse341-project2-ximw.onrender.com"
       : "localhost:" + port,
   schemes: process.env.NODE_ENV === "production" ? ["https"] : ["http"]
 };
