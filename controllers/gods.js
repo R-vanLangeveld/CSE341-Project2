@@ -1,7 +1,7 @@
 const mongodb = require("../data/database");
 const ObjectId = require("mongodb").ObjectId;
 
-const getAll = async (req, res) => {
+const getAllGods = async (req, res) => {
   //#swagger.tags=["Gods"]
   try {
     const result = await mongodb.getDatabase().db().collection("gods").find();
@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
   }
 };
 
-const getSingle = async (req, res) => {
+const getSingleGod = async (req, res) => {
   //#swagger.tags=["Gods"]
   try {
     const godId = new ObjectId(req.params.id);
@@ -29,8 +29,37 @@ const getSingle = async (req, res) => {
 };
 
 const createGod = async (req, res) => {
-  //#swagger.tags=["Gods"]
-  //#swagger.description="You don't have to add every child of a god, just one and 'and many others' or 'and a few others'"
+  /* #swagger.tags=["Gods"]
+  #swagger.description="You don't have to add every child of a god, just one and 'and many others' or 'and a few others'"
+  #swagger.parameters["body"] = {
+    in: "body",
+    '@schema': {
+      "type": "object",
+      "properties": {
+        "children": {
+          "example": ["any", "any"]
+        },
+        "domains": {
+          "example": ["any", "any"]
+        },
+        "name": {
+          "example": "any"
+        },
+        "parents": {
+          "example": ["any", "any"]
+        },
+        "siblings": {
+          "example": ["any", "any"]
+        },
+        "translation": {
+          "example": "any"
+        },
+        "transliteration": {
+          "example": "any"
+        }
+      }
+    }
+  } */
   try {
     const god = {
       children: req.body.children,
@@ -53,8 +82,37 @@ const createGod = async (req, res) => {
 };
 
 const updateGod = async (req, res) => {
-  //#swagger.tags=["Gods"]
-  /*#swagger.description="You should start by copying and pasting the information of the God you want to edit. You don't have to add every child of a god, just one and 'and many others' or 'and a few others'." */
+  /* #swagger.tags=["Gods"]
+  #swagger.description="You should start by copying and pasting the information of the God you want to edit. You don't have to add every child of a god, just one and 'and many others' or 'and a few others'."
+  #swagger.parameters["body"] = {
+    in: "body",
+    '@schema': {
+      "type": "object",
+      "properties": {
+        "children": {
+          "example": ["any", "any"]
+        },
+        "domains": {
+          "example": ["any", "any"]
+        },
+        "name": {
+          "example": "any"
+        },
+        "parents": {
+          "example": ["any", "any"]
+        },
+        "siblings": {
+          "example": ["any", "any"]
+        },
+        "translation": {
+          "example": "any"
+        },
+        "transliteration": {
+          "example": "any"
+        }
+      }
+    }
+  } */
   try {
     const godId = new ObjectId(req.params.id);
     const god = {
@@ -97,8 +155,8 @@ const deleteGod = async (req, res) => {
 };
 
 module.exports = {
-  getAll,
-  getSingle,
+  getAllGods,
+  getSingleGod,
   createGod,
   updateGod,
   deleteGod

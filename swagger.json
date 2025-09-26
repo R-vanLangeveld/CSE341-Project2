@@ -16,9 +16,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
           }
         }
       }
@@ -66,19 +63,19 @@
               "type": "object",
               "properties": {
                 "children": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "domains": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "name": {
                   "example": "any"
                 },
                 "parents": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "siblings": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "translation": {
                   "example": "any"
@@ -142,19 +139,19 @@
               "type": "object",
               "properties": {
                 "children": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "domains": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "name": {
                   "example": "any"
                 },
                 "parents": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "siblings": {
-                  "example": "any"
+                  "example": ["any", "any"]
                 },
                 "translation": {
                   "example": "any"
