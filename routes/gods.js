@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const godsController = require("../controllers/gods");
 const validation = require("../middleware/validate");
-
 const auth = require("../middleware/authenticate");
 
 router.get("/", godsController.getAll);
