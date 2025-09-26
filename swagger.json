@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
-    "description": "Contacts API",
+    "title": "Greek Gods API",
+    "description": "Greek Gods API",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -16,6 +16,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -54,7 +57,7 @@
       },
       "post": {
         "tags": ["Gods"],
-        "description": "",
+        "description": "You don't have to add every child of a god, just one and 'and many others' or 'and a few others'",
         "parameters": [
           {
             "name": "body",
@@ -90,6 +93,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -121,7 +127,7 @@
       },
       "put": {
         "tags": ["Gods"],
-        "description": "",
+        "description": "You should start by copying and pasting the information of the God you want to edit. You don't have to add every child of a god, just one and 'and many others' or 'and a few others'.",
         "parameters": [
           {
             "name": "id",
@@ -164,6 +170,9 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -186,6 +195,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"

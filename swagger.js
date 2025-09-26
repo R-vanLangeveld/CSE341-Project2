@@ -4,8 +4,8 @@ const port = process.env.PORT || 3000;
 
 const doc = {
   info: {
-    title: "Contacts API",
-    description: "Contacts API"
+    title: "Greek Gods API",
+    description: "Greek Gods API"
   },
   host:
     process.env.NODE_ENV === "production"
