@@ -25,8 +25,8 @@ const saveGod = (req, res, next) => {
 
 const saveUser = (req, res, next) => {
   const validationRule = {
-    username: "required|string",
-    url: "required|string"
+    displayName: "required|string",
+    profileUrl: "required|string"
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
