@@ -8,6 +8,7 @@ const mongodb = require("./data/database");
 const app = express();
 
 const port = process.env.PORT || 3000;
+var prof = {};
 
 app.use(bodyParser.json());
 
@@ -48,6 +49,7 @@ passport.use(
       callbackURL: process.env.CALLBACK_URL
     },
     (accessToken, refreshToken, profile, done) => {
+      prof = profile._json;
       return done(null, profile);
     }
   )
@@ -63,8 +65,26 @@ passport.deserializeUser((user, done) => {
 app.get(
   "/auth/github/callback",
   passport.authenticate("github", { failureRedirect: "/api-docs", session: false }),
-  (req, res) => {
+  async (req, res) => {
     req.session.user = req.user;
+    try {
+      const user = {
+        username: prof.name,
+        url: prof.html_url
+      };
+      const existingUser = await mongodb
+        .getDatabase()
+        .db()
+        .collection("users")
+        .findOne({ url: user.url });
+      if (existingUser) {
+        await mongodb.getDatabase().db().collection("users").replaceOne({ url: user.url }, user);
+      } else {
+        await mongodb.getDatabase().db().collection("users").insertOne(user);
+      }
+    } catch (error) {
+      console.error(error);
+    }
     res.redirect("/");
   }
 );

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const auth = require("../middleware/authenticate");
 
-router.get("/", auth.isAuthenticated, (req, res) => {
+router.get("/", (req, res) => {
   //#swagger.tags=["Hello World"]
   try {
     res.send("<p>Hello World</p>");
@@ -21,5 +21,8 @@ router.get("/sources", (req, res) => {
 
 router.use("/", require("./swagger"));
 router.use("/gods", require("./gods"));
+router.use("/users", 
+  // auth.isAuthenticated, 
+  require("./users"));
 
 module.exports = router;
