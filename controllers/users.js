@@ -47,8 +47,8 @@ const createUser = async (req, res) => {
   } */
   try {
     const user = {
-      username: req.body.username,
-      url: req.body.html_url
+      displayName: req.body.displayName,
+      profileUrl: req.body.profileUrl
     };
     const response = await mongodb.getDatabase().db().collection("users").insertOne(user);
     if (response.acknowledged) {
@@ -81,8 +81,8 @@ const updateUser = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
     const user = {
-      username: req.body.username,
-      url: req.body.url
+      displayName: req.body.displayName,
+      profileUrl: req.body.profileUrl
     };
     const response = await mongodb
       .getDatabase()

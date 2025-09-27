@@ -49,7 +49,7 @@ passport.use(
       callbackURL: process.env.CALLBACK_URL
     },
     (accessToken, refreshToken, profile, done) => {
-      prof = profile._json;
+      prof = profile;
       return done(null, profile);
     }
   )
@@ -69,16 +69,16 @@ app.get(
     req.session.user = req.user;
     try {
       const user = {
-        username: prof.name,
-        url: prof.html_url
+        displayName: prof.displayName,
+        profileUrl: prof.profileUrl
       };
       const existingUser = await mongodb
         .getDatabase()
         .db()
         .collection("users")
-        .findOne({ url: user.url });
+        .findOne({ profileUrl: user.profileUrl });
       if (existingUser) {
-        await mongodb.getDatabase().db().collection("users").replaceOne({ url: user.url }, user);
+        await mongodb.getDatabase().db().collection("users").replaceOne({ profileUrl: user.profileUrl }, user);
       } else {
         await mongodb.getDatabase().db().collection("users").insertOne(user);
       }
