@@ -36,10 +36,10 @@ const createUser = async (req, res) => {
     '@schema': {
       "type": "object",
       "properties": {
-        "username": {
+        "displayName": {
           "example": "your github username"
         },
-        "url": {
+        "profileUrl": {
           "example": "https://github.com/example"
         }
       }
@@ -69,10 +69,10 @@ const updateUser = async (req, res) => {
     '@schema': {
       "type": "object",
       "properties": {
-        "username": {
+        "displayName": {
           "example": "your github username"
         },
-        "url": {
+        "profileUrl": {
           "example": "https://github.com/example"
         }
       }

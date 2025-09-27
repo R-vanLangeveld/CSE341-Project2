@@ -78,7 +78,11 @@ app.get(
         .collection("users")
         .findOne({ profileUrl: user.profileUrl });
       if (existingUser) {
-        await mongodb.getDatabase().db().collection("users").replaceOne({ profileUrl: user.profileUrl }, user);
+        await mongodb
+          .getDatabase()
+          .db()
+          .collection("users")
+          .replaceOne({ profileUrl: user.profileUrl }, user);
       } else {
         await mongodb.getDatabase().db().collection("users").insertOne(user);
       }

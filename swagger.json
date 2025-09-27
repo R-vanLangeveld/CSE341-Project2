@@ -91,9 +91,6 @@
           "204": {
             "description": "No Content"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -167,9 +164,6 @@
           "204": {
             "description": "No Content"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -192,9 +186,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -223,10 +214,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
+                "displayName": {
                   "example": "your github username"
                 },
-                "url": {
+                "profileUrl": {
                   "example": "https://github.com/example"
                 }
               }
@@ -236,9 +227,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -284,10 +272,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
+                "displayName": {
                   "example": "your github username"
                 },
-                "url": {
+                "profileUrl": {
                   "example": "https://github.com/example"
                 }
               }
@@ -297,9 +285,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -323,9 +308,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
