@@ -21,8 +21,6 @@ router.get("/sources", (req, res) => {
 
 router.use("/", require("./swagger"));
 router.use("/gods", require("./gods"));
-router.use("/users", 
-  // auth.isAuthenticated, 
-  require("./users"));
+router.use("/users", auth.isAuthenticated, require("./users"));
 
 module.exports = router;
